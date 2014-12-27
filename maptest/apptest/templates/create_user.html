@@ -1,0 +1,9 @@
+<html>
+<body>
+<h3>Create New User</h3>
+<form action="/apptest/create_user/" method="POST">{% csrf_token %}
+{{form.as_p}}
+<input type = "submit" value = "Sumit">
+</form>
+</body>
+</html>

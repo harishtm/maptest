@@ -1,0 +1,44 @@
+{% load apptest_tags %}
+<html>
+<body>
+
+
+
+<table border=1>
+    <thaed>
+        <tr>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>State</th>
+            <th>Country</th>
+        </tr>
+    </thaed>
+    <tbody>
+        {% for u in user_list %}
+        <tr>
+            <td>{{u.email}}</td>
+            {% get_userprofile_address u as userprofile_obj %}
+                {{userprofile_obj}}
+                <td>
+                    {% if userprofile_obj.0 %}
+                        {{ userprofile_obj.0.phone1}}
+                    {% else %}
+                        NA
+                    {% endif %}
+                </td>
+                <td>
+                    {% if userprofile_obj.1 %}
+                        {{ userprofile_obj.1.address1 }}
+                    {% else %}
+                        NA
+                    {% endif %}
+                </td>
+                <td></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+<table>
+    
+
+</body>
+</html>
